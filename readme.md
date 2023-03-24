@@ -11,6 +11,6 @@
 가능하면 한 번에 하나씩 브랜치를 만들어 올리고, 각 브랜치별로 PR을 올려요.
 
 ### 팀원 👩‍👦‍👦
-|멘토|팀원|팀원|팀원|팀원|
-| :-: | :-: | :-: | :-: | :-: |
-|[이동훈](https://github.com/donghoony)|[이동현](https://github.com/dhleekonkuk)|[장민](https://github.com/research-mini)|[김진원](https://github.com/jinwon0988)|[김채원](https://github.com/0dimen)|
+|멘토|팀원|팀원|팀원|팀원|팀원|
+| :-: | :-: | :-: | :-: | :-: | :-: |
+|[이동훈](https://github.com/donghoony)|[이동현](https://github.com/dhleekonkuk)|[장민](https://github.com/research-mini)|[김진원](https://github.com/jinwon0988)|[김채원](https://github.com/0dimen)|[채승헌](https://github.com/massai-king)|
