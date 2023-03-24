@@ -13,4 +13,4 @@
 ### 팀원 👩‍👦‍👦
 |멘토|팀원|팀원|팀원|팀원|
 | :-: | :-: | :-: | :-: | :-: |
-|[이동훈](https://github.com/donghoony)|[이동현](https://github.com/dhlee_0101)|[장민](https://github.com/research-mini)|[김진원](https://github.com/jinwon0988)|[김채원](https://github.com/0dimen)|
+|[이동훈](https://github.com/donghoony)|[이동현](https://github.com/dhleekonkuk)|[장민](https://github.com/research-mini)|[김진원](https://github.com/jinwon0988)|[김채원](https://github.com/0dimen)|
