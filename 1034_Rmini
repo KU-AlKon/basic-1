@@ -1,0 +1,38 @@
+#include <iostream>
+#include <algorithm>
+#include <string.h>
+using namespace std;
+
+
+
+int main()
+{
+	int N, M, K;
+	string arr[51];
+	int MAX = 0;
+	cin >> N >> M;
+	for (int i = 0; i < N; i++) {
+		cin >> arr[i];
+	}
+
+	cin >> K;
+
+	for (int j = 0; j < N; j++) {
+		int zero_count = 0;
+		for (int k = 0; k < M; k++) {
+			if (arr[j][k] == '0') {
+				zero_count++;
+			}
+		}
+		int cnt = 0;
+		if (zero_count <= K && zero_count % 2 == K % 2) {
+			for (int m = 0; m < N; m++) {
+				if (arr[j] == arr[m]) {
+					cnt++;
+				}
+			}
+		}
+		MAX = max(MAX, cnt);
+	}
+	cout << MAX;
+}
