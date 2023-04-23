@@ -1,0 +1,33 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+
+using namespace std;
+
+int main(void) {
+	int N = 0;
+	int answer = 0;
+	cin >> N;
+	vector<int> v(N);
+	for (int i = 0; i < N; i++) {
+		cin >> v[i];
+	}
+	int temp = 0;
+	int temp2 = 0;
+	for (int i = 0; i < N; i++) {
+		temp2 = v[i] * v[i + 1];
+		while (temp2 != 0) {
+			temp2 += (temp2 % 10);
+			temp2 = temp2 / 10;
+		}
+		if (temp < temp2) {
+			temp = temp2;
+		}
+
+	}
+	answer = temp;
+	cout << answer << "\n";
+
+	return 0;
+}
+
