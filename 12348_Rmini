@@ -1,0 +1,29 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+	string input;
+	cin >> input;
+	long N = stol(input);
+	
+	int digit = input.size();
+	long start = N - (digit * 9);
+	for (long i = start; i < N; i++) {
+		long num = i;
+		long sum = num;
+		while (num > 0) {
+			sum += num % 10;
+			num /= 10;
+
+		}
+		if (sum == N) {
+			cout << i << "\n";
+			return 0;
+
+		}
+		
+	}
+	cout << 0 << "\n";
+	return 0;
+}
