@@ -1,0 +1,35 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+struct pos{
+    int x;
+    int y;
+};
+
+bool compare(pos a,pos b){
+    if (a.x == b.x) {
+        return a.y < b.y;
+    }
+    else
+        return a.x < b.x;
+}
+
+int main() {
+    int num;
+    int xin;
+    int yin;
+    vector<pos> list;
+    cin >> num;
+    for (int i = 0; i < num; i++)
+    {
+        cin >> xin>>yin;
+        pos insert{ xin,yin};
+        list.push_back(insert);
+    }
+    sort(list.begin(), list.end(),compare);
+    for (int i = 0; i < num; i++) {
+        cout << list[i].x << " " << list[i].y << '\n';
+    }
+}
