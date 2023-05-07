@@ -1,0 +1,75 @@
+#include <iostream>
+#include <queue>
+#include <algorithm>
+using namespace std;
+
+
+
+int main() {
+	int orderN;
+	string order;
+	deque<int> dq;
+	cin >> orderN;
+	int x;
+	for (int i = 0; i < orderN; i++) {
+		cin >> order;
+		if (order == "push_front") {
+			
+			cin >> x;
+			dq.push_front(x);
+		}
+		else if (order == "push_back") {
+			
+			cin >> x;
+			dq.push_back(x);
+		}
+		else if (order == "pop_front") {
+			if (dq.size() == 0) {
+				cout << -1 << '\n';
+			}
+			else {
+				cout << dq.front() << '\n';
+				dq.pop_front();
+			}
+		}
+		else if (order == "pop_back") {
+			if (dq.size() == 0) {
+				cout << -1 << '\n';
+			}
+			else {
+				cout << dq.back() << '\n';
+				dq.pop_back();
+			}
+		}
+		else if (order == "size") {
+			cout << dq.size() << '\n';
+		}
+		else if (order == "empty") {
+			if (dq.size() == 0) {
+				cout << "1" << '\n';
+			}
+			else {
+				cout << "0" << "\n";
+			}
+		}
+		else if (order == "front") {
+			if (dq.size() == 0) {
+				cout << "-1" << "\n";
+			}
+			else {
+				cout << dq.front() << "\n";
+			}
+		}
+		else if (order == "back") {
+			if (dq.size() == 0) {
+				cout << "-1" << "\n";
+			}
+			else {
+				cout << dq.back() << "\n";
+			}
+		}
+
+
+	}
+	return 0;
+}
