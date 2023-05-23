@@ -1,101 +1,57 @@
 #include <iostream>
+#include <algorithm>
+#include <vector>
 #include <queue>
 using namespace std;
 
+int N, M, V;
 
-#define MAXNUM 1010
-bool edge[MAXNUM][MAXNUM] = {false};
-queue<int> result;
+vector<int> g[1001];
+bool v1[1001] = {false};
+bool v2[1001] = {false};
 
-void DFS(bool (&visit)[MAXNUM],int N, int v){
-    if(visit[v] == true)// 방문한 경우
-        return;
+void dfs(int cur){
+    v1[cur] = true;
+    cout << cur << " ";
+    for(auto nxt : g[cur]){
+        if(v1[nxt]) continue;
+        dfs(nxt);
+    }
+}
+
+void bfs(int cur){
+    queue<int> q;
+    v2[cur] = true;
+    q.push(cur);
+
+    while(!q.empty()){
+        cur = q.front(); q.pop();
+        cout << cur << " ";
+        for (auto nxt : g[cur]){
+            if(v2[nxt]) continue;
+            v2[nxt] = true;
+            q.push(nxt);
+        }
+    }
     
-    else{// 방문하지 않은 경우.
-        visit[v] = true; // 방문한 상태로 변경
-        result.push(v);
-        for(int i = 1; i <= N; i++){
-            if(edge[v][i]) // 연결되어 있는 경우
-                DFS(visit, N, i);
-        }
-    }
-}
-
-
-
-void BFS(bool (&visit)[MAXNUM], queue<int> q, int N, int v){
-    if(visit[v])// 방문했으면
-        return;
-    else{
-        visit[v] = true;
-        result.push(v);
-        for(int i = 1; i<= N; i++){ // v에 연결된 모든 노드 큐에 넣기.
-            if(edge[v][i]) // 연결되어 있는 경우
-            {
-                if(visit[i]) // 방문한 경우.
-                    continue;
-                else // 방문하지 않은 경우.
-                    q.push(i);
-            }
-        }
-        if(q.empty()){
-            return;
-        }
-        else{
-            v = q.front();
-            q.pop();
-            BFS(visit, q, N, v);
-        }
-    }
-}
-
-void printResult(){ // 결과 출력
-    while(!result.empty()){
-        cout << result.front();
-        result.pop();
-        if(result.empty()) // 뒤 공백 제거.
-            return;
-        else
-            cout << " ";
-        
-    }
 }
 
 int main(){
-    int N, M, V;
     cin >> N >> M >> V;
-    static int n = N;
 
-
-    for(int i = 1; i<M+1; i++){ // 간선 저장
-        int a, b;
+    int a, b;
+    for (int i = 0; i < M; i++){
         cin >> a >> b;
-        edge[a][b] = true;
-        edge[b][a] = true;
+        g[a].push_back(b);
+        g[b].push_back(a);
     }
+    for(int i = 1; i<N+1; i++)
+        sort(g[i].begin(), g[i].end());
     
 
-    // 연결된 간선이 있는지 확인.
-    // bool isEdge = false;
-    // for(int i = 0; i<N; i++){
-    //     if(edge[V][i]){
-    //         isEdge = true;
-    //         break;
-    //     }
-    // }
-    // if (!isEdge){ // 연결된 간선이 없으면 종료.
-    //     return 0;
-    // }
-
-    
-    bool dfsVisit[MAXNUM] = {false};
-    DFS(dfsVisit, N, V);
-    printResult();
-
+    dfs(V);
     cout << "\n";
+    bfs(V);
 
-    bool bfsVisit[MAXNUM] = {false};
-    queue<int> bfsQ;
-    BFS(bfsVisit, bfsQ, N, V);
-    printResult();
+    return 0;
 }
